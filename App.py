@@ -13,7 +13,7 @@ if not api_key:
 genai.configure(api_key=api_key)
 
 # FIX - Quota ekkuva unna model
-model = genai.GenerativeModel('models/gemini-2.0-flash')
+model = genai.GenerativeModel('models/gemini-3.8-flash')
 
 uploaded_file = st.file_uploader("Resume PDF", type="pdf")
 job_desc = st.text_area("Job Description", height=200)

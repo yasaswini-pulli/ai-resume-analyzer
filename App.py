@@ -6,9 +6,7 @@ import time
 st.set_page_config(page_title="Resume AI - By Yasaswini")
 st.title("Resume AI - By Yasaswini")
 
-api_key = st.text_input("Enter your Gemini API Key", type="password")
-if not api_key:
-    st.stop()
+api_key = st.secrets["GEMINI_API_KEY"]
 
 genai.configure(api_key=api_key)
 

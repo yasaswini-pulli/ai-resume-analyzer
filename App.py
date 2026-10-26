@@ -6,7 +6,7 @@ st.title("Resume AI - By Yasaswini")
 api_key = st.text_input("Gemini API Key", type="password")
 if api_key:
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel("gemini-1.5-flash")
+    model = genai.GenerativeModel("gemini-1.5-flash-latest")
     pdf = st.file_uploader("Resume PDF", type=["pdf"])
     jd = st.text_area("Job Description")
     if st.button("Generate"):

@@ -31,3 +31,35 @@ if st.button("Generate"):
             except Exception as e:
                 st.error("API limit ayipoyindi. 1 minute aagi malli Generate nokku. Inka kotha Gmail tho key teesko - 100% work avuddi")
                 st.write(str(e))
+
+# Add this new function in your app.py
+
+def rewrite_resume_for_ats(resume_text, jd_text):
+    prompt = f"""
+    You are an expert ATS Resume Writer for Qualcomm/TCS.
+
+    TASK: Rewrite the user's resume to increase ATS match from 52% to 85%+ WITHOUT LYING.
+
+    RULES:
+    1. DO NOT add fake skills like "Expert in C++" if user doesn't know.
+    2. Instead, BRIDGE existing skills: 
+       Example: If JD asks C++ and user knows Embedded C -> Write "Proficient in C/C++ concepts through Embedded C projects"
+       Example: If JD asks OOPs and user knows C -> Write "Applied OOPs concepts using Python in Resume AI project"
+    3. Keep all original projects, just add JD keywords naturally.
+    4. Output should be in proper Resume Format.
+
+    USER RESUME:
+    {resume_text}
+
+    JOB DESCRIPTION:
+    {jd_text}
+
+    OUTPUT FORMAT:
+    Give me a NEW Improved Resume text only.
+    """
+    # call your LLM here - response = openai.chat.completions.create(...)
+    # return response
+    return prompt
+                
+
+
